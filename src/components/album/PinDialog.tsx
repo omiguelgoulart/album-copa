@@ -47,7 +47,7 @@ export function PinDialog({ open, onSuccess }: PinDialogProps) {
   }
 
   return (
-    <Dialog open={open} dismissible={false}>
+    <Dialog open={open}>
       <DialogContent className="sm:max-w-sm" showCloseButton={false}>
         <DialogHeader>
           <div className="flex justify-center mb-2">
