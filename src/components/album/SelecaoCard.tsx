@@ -54,7 +54,7 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
                   ...fig,
                   selecao: { nome: selecao.nome, cor_bg: selecao.cor_bg, cor_fg: selecao.cor_fg },
                 })}
-                className={`text-xs font-medium px-2 py-1 rounded border transition-all active:scale-95 ${chipStyle[fig.status]}`}
+                className={`text-xs font-semibold px-2.5 py-1.5 rounded border transition-colors active:scale-95 touch-manipulation ${chipStyle[fig.status]}`}
               >
                 {fig.codigo}
               </button>
