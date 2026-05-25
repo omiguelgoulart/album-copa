@@ -40,9 +40,12 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
   return (
     <>
       <div className="flex flex-col gap-1.5">
-        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-          {selecao.nome} ({selecao.sigla})
-        </p>
+        <span
+          className="self-start text-xs font-bold px-2 py-0.5 rounded"
+          style={{ backgroundColor: selecao.cor_bg, color: selecao.cor_fg }}
+        >
+          {selecao.sigla} — {selecao.nome}
+        </span>
 
         <div className="flex flex-wrap gap-1.5">
           {selecao.figurinhas
