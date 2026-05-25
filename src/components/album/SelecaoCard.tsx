@@ -40,7 +40,7 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
 
   return (
     <>
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden" style={{ borderColor: selecao.cor_bg }}>
         <CardHeader
           className="px-3 py-2"
           style={{ backgroundColor: selecao.cor_bg, color: selecao.cor_fg }}
@@ -50,7 +50,10 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
           </span>
         </CardHeader>
 
-        <CardContent className="grid grid-cols-5 gap-1.5 p-3">
+        <CardContent
+          className="grid grid-cols-5 gap-1.5 p-3"
+          style={{ backgroundColor: `${selecao.cor_bg}18` }}
+        >
           {selecao.figurinhas
             .sort((a, b) => a.numero - b.numero)
             .map((fig) => (
