@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { FigurinhaDialog } from './FigurinhaDialog'
 
 type Status = 'TENHO' | 'REPETIDA' | 'FALTA'
@@ -39,17 +40,17 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
 
   return (
     <>
-      <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
-        <div
+      <Card className="overflow-hidden">
+        <CardHeader
           className="px-3 py-2"
           style={{ backgroundColor: selecao.cor_bg, color: selecao.cor_fg }}
         >
           <span className="text-xs font-bold tracking-wide">
             {selecao.sigla} — {selecao.nome}
           </span>
-        </div>
+        </CardHeader>
 
-        <div className="grid grid-cols-5 gap-1.5 p-3">
+        <CardContent className="grid grid-cols-5 gap-1.5 p-3">
           {selecao.figurinhas
             .sort((a, b) => a.numero - b.numero)
             .map((fig) => (
@@ -64,8 +65,8 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
                 {fig.codigo}
               </button>
             ))}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
 
       <FigurinhaDialog
         figurinha={selected}
