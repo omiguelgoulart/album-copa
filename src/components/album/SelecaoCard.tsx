@@ -39,15 +39,17 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
 
   return (
     <>
-      <div className="flex flex-col gap-1.5">
-        <span
-          className="self-start text-xs font-bold px-2 py-0.5 rounded"
+      <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
+        <div
+          className="px-3 py-2"
           style={{ backgroundColor: selecao.cor_bg, color: selecao.cor_fg }}
         >
-          {selecao.sigla} — {selecao.nome}
-        </span>
+          <span className="text-xs font-bold tracking-wide">
+            {selecao.sigla} — {selecao.nome}
+          </span>
+        </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="grid grid-cols-5 gap-1.5 p-3">
           {selecao.figurinhas
             .sort((a, b) => a.numero - b.numero)
             .map((fig) => (
@@ -57,7 +59,7 @@ export function SelecaoCard({ selecao, pin, onUpdated }: SelecaoCardProps) {
                   ...fig,
                   selecao: { nome: selecao.nome, cor_bg: selecao.cor_bg, cor_fg: selecao.cor_fg },
                 })}
-                className={`text-xs font-semibold px-2.5 py-1.5 rounded border transition-colors active:scale-95 touch-manipulation ${chipStyle[fig.status]}`}
+                className={`text-xs font-semibold py-1.5 rounded border text-center transition-colors active:scale-95 touch-manipulation ${chipStyle[fig.status]}`}
               >
                 {fig.codigo}
               </button>
